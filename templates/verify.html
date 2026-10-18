@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer">
+<title>Verify registration — ASTRA FEST 2026</title>
+<style>body{font-family:system-ui,sans-serif;background:#2a1424;color:#2a2328;margin:0;min-height:100vh;display:grid;place-items:center;padding:16px}
+.c{background:#fffaf0;border-radius:16px;padding:24px;max-width:420px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.4)}h1{margin:0 0 8px;color:#7a1f2b;font-size:1.3rem}
+.ok{color:#1b6e2f;font-weight:800;font-size:1.2rem}.bad{color:#b00020;font-weight:800;font-size:1.2rem}td{padding:5px 8px 5px 0}td:first-child{font-weight:700}</style></head><body>
+<div class="c"><h1>ASTRA FEST 2026 — Verification</h1><div id="r">Checking…</div></div>
+<script>
+const t={{ token|tojson }};
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+fetch('/api/astra/registrations/verify/'+encodeURIComponent(t)).then(r=>r.json()).then(d=>{
+ document.getElementById('r').innerHTML=d.valid?`<p class="ok">✔ Valid registration</p><table><tr><td>Code</td><td>${esc(d.reg_code)}</td></tr><tr><td>Event</td><td>${esc(d.event)}</td></tr><tr><td>Name</td><td>${esc(d.holder)}</td></tr><tr><td>Status</td><td>${esc(d.status)}</td></tr><tr><td>Payment</td><td>${esc(d.payment_status.replace('_',' '))}</td></tr></table>`:'<p class="bad">✘ Not a valid registration</p>'
+}).catch(()=>document.getElementById('r').textContent='Could not check. Try again.');
+</script></body></html>

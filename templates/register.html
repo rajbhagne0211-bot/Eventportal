@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Register — ASTRA FEST 2026</title>
+<style>
+:root{--or:#e8732a;--mar:#7a1f2b;--cr:rgb(255, 255, 255);--ch:#2a2328;--ln:#e6d5bd}
+*{box-sizing:border-box}html,body{margin:0}
+body{font-family:system-ui,Segoe UI,Roboto,sans-serif;color:var(--ch);background:#2a1424;min-height:100vh;overflow-x:hidden}
+#bg{position:fixed;inset:0;z-index:-1;background:linear-gradient(#2a1a3a 0%,#7a1f2b 38%,#e8732a 72%,#ffc27a 100%);overflow:hidden}
+#bg svg{position:absolute;bottom:0;left:0;width:100%;height:45%}
+.sun{position:absolute;left:50%;bottom:22%;width:180px;height:180px;margin-left:-90px;border-radius:50%;background:radial-gradient(#ffe3a8,#ffb35c 55%,transparent 70%);opacity:.8}
+.train{animation:go 38s linear infinite}
+@keyframes go{from{transform:translateX(-300px)}to{transform:translateX(1300px)}}
+.win{animation:tw 3s ease-in-out infinite alternate}.win:nth-child(3n){animation-delay:1s}.win:nth-child(4n){animation-delay:2s}
+@keyframes tw{from{opacity:.25}to{opacity:1}}
+.par{animation:sway 24s ease-in-out infinite alternate}
+@keyframes sway{to{transform:translateX(-24px)}}
+@media(prefers-reduced-motion:reduce),(max-width:520px){.train,.win,.par{animation:none}}
+nav{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;background:rgba(42,35,40,.75);backdrop-filter:blur(8px);position:sticky;top:0;z-index:5}
+nav .logo{color:#ffd9a0;font-weight:800;letter-spacing:.12em;text-decoration:none}
+nav .links{display:flex;gap:6px}
+nav a.l{color:#fff;text-decoration:none;padding:10px 14px;position:relative;min-height:44px;display:flex;align-items:center}
+nav a.l:after{content:"";position:absolute;left:14px;right:14px;bottom:6px;height:2px;background:var(--or);transform:scaleX(0);transition:.25s}
+nav a.l:hover:after,nav a.l:focus-visible:after{transform:scaleX(1)}
+:focus-visible{outline:3px solid #1a6fd6;outline-offset:2px}
+header{text-align:center;color:#fff;padding:28px 16px 8px}
+h1{margin:0;font-size:clamp(1.5rem,5vw,2.6rem);letter-spacing:.06em}
+header p{margin:6px 0 0;color:#ffe3bd}.tag{font-size:.85rem;opacity:.9}
+.panel{max-width:860px;margin:16px auto 60px;padding:22px;background:rgba(255,247,234,.96);border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.prog{display:flex;gap:6px;margin-bottom:18px;list-style:none;padding:0}
+.prog li{flex:1;text-align:center;font-size:.72rem;padding-top:8px;border-top:4px solid var(--ln);color:#7b6d60}
+.prog li.on{border-color:var(--or);color:var(--mar);font-weight:700}.prog li.done{border-color:var(--mar)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.card{text-align:left;background:#fff;border:2px solid var(--ln);border-radius:12px;padding:14px;cursor:pointer;font:inherit;color:inherit;min-height:44px}
+.card:hover{border-color:var(--or)}.card[aria-pressed=true]{border-color:var(--mar);background:#fff0dc}
+.card:disabled{opacity:.55;cursor:not-allowed}
+.card b{display:block;color:var(--mar)}.card small{color:#6b5d50}
+h2{color:var(--mar);margin:0 0 12px}h3{margin:18px 0 8px;color:var(--ch)}
+.sub{margin:16px 0 6px;font-weight:700;color:var(--or);text-transform:uppercase;font-size:.8rem;letter-spacing:.08em}
+.types{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.types .card{flex:1;min-width:220px;text-align:center;font-weight:700}
+.row{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(max-width:600px){.row{grid-template-columns:1fr}.prog li{font-size:0}.prog li:before{content:attr(data-n);font-size:.8rem}}
+label{display:block;font-size:.85rem;font-weight:600}label i{color:#b00020;font-style:normal}
+input,select,textarea{width:100%;padding:11px;border:1.5px solid #cdb999;border-radius:8px;font:inherit;background:#fff;margin-top:3px;min-height:44px}
+fieldset{border:1px solid var(--ln);border-radius:10px;margin:12px 0;padding:12px}legend{font-weight:700;color:var(--mar);padding:0 6px}
+.btn{padding:12px 20px;border:0;border-radius:10px;font:inherit;font-weight:700;cursor:pointer;min-height:44px}
+.pri{background:var(--mar);color:#fff}.sec{background:#eadfce;color:var(--ch)}.btn:disabled{opacity:.5;cursor:not-allowed}
+.ctl{display:flex;justify-content:space-between;gap:10px;margin-top:20px}
+.note{background:#fff0dc;border-left:4px solid var(--or);padding:10px 12px;border-radius:6px;margin:10px 0;font-size:.9rem}
+.err{background:#fde7ea;border-left:4px solid #b00020;padding:10px 12px;border-radius:6px;margin:10px 0}
+table.s{width:100%;border-collapse:collapse}table.s td{padding:6px 4px;border-bottom:1px solid var(--ln);vertical-align:top}table.s td:first-child{font-weight:700;width:38%}
+.upst{font-size:.85rem;margin-top:4px;min-height:1.2em}.upst.ok{color:#1b6e2f}.upst.bad{color:#b00020}
+</style></head><body>
+<div id="bg" aria-hidden="true"><div class="sun"></div>
+<svg viewBox="0 0 1200 300" preserveAspectRatio="xMidYMax slice">
+ <g class="par" fill="#3b1626" opacity=".55"><rect x="40" y="120" width="60" height="180"/><rect x="130" y="80" width="50" height="220"/><rect x="520" y="100" width="70" height="200"/><rect x="900" y="90" width="60" height="210"/><rect x="1020" y="140" width="80" height="160"/></g>
+ <g fill="#1d0f1a"><rect x="0" y="200" width="1200" height="100"/><rect x="20" y="150" width="70" height="150"/><rect x="200" y="130" width="60" height="170"/><rect x="290" y="170" width="90" height="130"/><rect x="760" y="140" width="80" height="160"/><rect x="1110" y="120" width="70" height="180"/>
+ <path d="M410 300V190q0-50 45-50t45 50v110z"/><rect x="395" y="180" width="20" height="120"/><rect x="495" y="180" width="20" height="120"/>
+ <rect x="600" y="150" width="140" height="150"/><path d="M600 150l70-40 70 40z"/><circle cx="640" cy="120" r="10"/><circle cx="700" cy="120" r="10"/></g>
+ <g fill="#ffd27a"><rect class="win" x="30" y="170" width="6" height="8"/><rect class="win" x="55" y="190" width="6" height="8"/><rect class="win" x="215" y="150" width="6" height="8"/><rect class="win" x="240" y="180" width="6" height="8"/><rect class="win" x="310" y="190" width="6" height="8"/><rect class="win" x="775" y="160" width="6" height="8"/><rect class="win" x="805" y="200" width="6" height="8"/><rect class="win" x="620" y="190" width="6" height="8"/><rect class="win" x="700" y="200" width="6" height="8"/><rect class="win" x="1130" y="150" width="6" height="8"/><rect class="win" x="1140" y="200" width="6" height="8"/></g>
+ <g class="train"><rect x="0" y="228" width="230" height="16" rx="3" fill="#6a2a8c"/><rect x="0" y="236" width="230" height="4" fill="#fff"/><g fill="#ffe9a8"><rect x="10" y="231" width="14" height="5"/><rect x="40" y="231" width="14" height="5"/><rect x="70" y="231" width="14" height="5"/><rect x="100" y="231" width="14" height="5"/><rect x="130" y="231" width="14" height="5"/><rect x="160" y="231" width="14" height="5"/><rect x="190" y="231" width="14" height="5"/></g></g>
+</svg></div>
+
+<nav aria-label="Main"><a class="logo" id="home-logo" href="/">ASTRA FEST 2026</a>
+ <div class="links"><a class="l" id="nav-home" href="/">Home</a><a class="l" id="nav-admin" href="/admin/login">Admin</a></div></nav>
+<header><h1>REGISTER FOR ASTRA 2026</h1><p>Your stage. Your story. Your Mumbai.</p>
+<p class="tag">Mumbai Meri Jaan · Ek Shehar • Hazaar Kahaaniyan • Ek Jashn</p></header>
+
+<main class="panel" id="panel" aria-live="polite">
+ <ol class="prog" id="prog"></ol><div id="view">Loading events…</div><div id="msg"></div>
+ <div class="ctl noprint" id="ctl"><button class="btn sec" id="back">Back</button><button class="btn pri" id="next">Next</button></div>
+</main>
+
+{% raw %}
+<script>
+/* Config: the page is served by Flask, so the API is on the same origin. If you host this HTML on a
+   different domain, set API to the full backend URL (e.g. 'https://api.example.com/api/astra') and
+   add the page's origin to CORS_ORIGINS in the backend .env. */
+const HOME_URL='/', ADMIN_URL='/admin/login', API='/api/astra';
+document.getElementById('nav-home').href=HOME_URL;document.getElementById('home-logo').href=HOME_URL;document.getElementById('nav-admin').href=ADMIN_URL;
+
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const YEARS=['FY','SY','TY'];
+const STEPS=['Category','Event','Type','Details','Review','Docs & Pay'];
+const rnd=()=>Array.from(crypto.getRandomValues(new Uint8Array(32)),b=>b.toString(16).padStart(2,'0')).join('');
+/* key = idempotency key (stops duplicate submissions); secret = proof of ownership of this registration, kept only in this browser */
+const S={step:1,cat:null,ev:null,fmt:null,common:{},members:[],subs:[],extra:{},consent:false,busy:false,reg:null,uploaded:{},key:rnd(),secret:rnd()};
+let EV=[],CFG={documents_required:true,manual_payment_allowed:false};
+
+const bounds=()=>{const e=S.ev;if(S.fmt==='individual')return[1,1];
+ const lo=e.formats.includes('individual')?Math.max(2,e.min_size||2):e.min_size;return[lo,e.max_size]};
+const label=()=>S.ev.formats.length===2&&S.ev.max_size===2||S.ev.max_size===2&&S.fmt==='team'?'Duo / Pair':'Team';
+const msg=(t,c='err')=>{$('#msg').innerHTML=t?`<div class="${c}" role="alert">${esc(t)}</div>`:''};
+const H=(json=true)=>Object.assign({'X-Registration-Token':S.secret},json?{'Content-Type':'application/json'}:{});
+
+/* ---- keep what the person typed if the network drops or the page reloads (this browser tab only) ---- */
+const DK='astra_draft_v1';
+function saveDraft(){try{sessionStorage.setItem(DK,JSON.stringify({step:S.step,cat:S.cat,evId:S.ev&&S.ev.id,fmt:S.fmt,common:S.common,members:S.members,subs:S.subs,extra:S.extra,consent:S.consent,key:S.key,secret:S.secret,reg:S.reg,uploaded:S.uploaded}))}catch(e){}}
+function restoreDraft(){try{const d=JSON.parse(sessionStorage.getItem(DK)||'null');if(!d)return;
+ Object.assign(S,{step:d.step||1,cat:d.cat,fmt:d.fmt,common:d.common||{},members:d.members||[],subs:d.subs||[],extra:d.extra||{},consent:!!d.consent,key:d.key||S.key,secret:d.secret||S.secret,reg:d.reg||null,uploaded:d.uploaded||{}});
+ S.ev=EV.find(e=>e.id===d.evId)||null;if(!S.ev&&!S.reg)S.step=Math.min(S.step,S.cat?2:1)}catch(e){}}
+
+async function init(){
+ try{const[c,e]=await Promise.all([fetch(API+'/config'),fetch(API+'/events')]);
+  if(!c.ok||!e.ok)throw new Error('load');
+  CFG=await c.json();EV=(await e.json()).events;restoreDraft();render()}
+ catch(x){$('#view').innerHTML='<div class="err">Could not load events. Check your connection and <a href="">reload</a>.</div>';$('#ctl').style.display='none'}}
+init();
+
+function render(){
+ $('#prog').innerHTML=STEPS.map((n,i)=>`<li data-n="${i+1}" class="${i+1===S.step?'on':i+1<S.step?'done':''}">${i+1}. ${n}</li>`).join('');
+ const v=$('#view');v.oninput=v.onchange=v.onclick=null;
+ ({1:s1,2:s2,3:s3,4:s4,5:s5,6:s6})[S.step](v);
+ $('#back').style.visibility=S.step>1&&!S.reg?'visible':'hidden';
+ $('#next').textContent=S.step===5?(S.busy?'Submitting…':'Submit registration'):S.step===6?(S.busy?'Please wait…':S.reg.fee>0?'Pay ₹'+S.reg.fee+' & finish':'Finish'):'Next';
+ $('#next').disabled=S.busy;saveDraft();
+}
+function s1(v){const cats=[...new Map(EV.map(e=>[e.category,e.cat_sort])).entries()].sort((a,b)=>a[1]-b[1]).map(x=>x[0]);
+ v.innerHTML='<h2>Choose a category</h2><div class="grid">'+cats.map(c=>`<button class="card" data-cat="${esc(c)}" aria-pressed="${S.cat===c}"><b>${esc(c)}</b><small>${EV.filter(e=>e.category===c).length} events</small></button>`).join('')+'</div>';
+ v.querySelectorAll('[data-cat]').forEach(b=>b.onclick=()=>{if(S.cat!==b.dataset.cat){S.cat=b.dataset.cat;S.ev=null;S.fmt=null}S.step=2;render()})}
+function fmtText(e){const f=e.formats;const sz=e.min_size==null?'size to be confirmed':e.min_size===e.max_size?`${e.min_size}`:`${e.min_size}–${e.max_size}`;
+ return (f.length===2?'Individual or team':f[0]==='individual'?'Individual':'Team')+' · '+sz+' participant(s)'+(e.sub_max?` + up to ${e.sub_max} substitutes`:'')}
+function s2(v){const list=EV.filter(e=>e.category===S.cat);let h=`<h2>${esc(S.cat)} — choose an event</h2>`,last=null;
+ list.forEach(e=>{if(e.subcategory&&e.subcategory!==last){h+=`<div class="sub">${esc(e.subcategory)}</div>`;last=e.subcategory}
+  const open=e.registration_open;
+  h+=`<button class="card" style="width:100%;margin-bottom:8px" data-ev="${e.id}" ${open?'':'disabled'} aria-pressed="${S.ev&&S.ev.id===e.id}"><b>${esc(e.name)}</b><small>${esc(e.description||'')} ${esc(fmtText(e))}${e.fee>0?' · Fee ₹'+e.fee:''}${open&&e.seats_left!=null?' · '+e.seats_left+' seat(s) left':''}${open?'':' — '+esc(e.closed_reason||'registration not open')}</small></button>`});
+ v.innerHTML=h;
+ v.querySelectorAll('[data-ev]').forEach(b=>b.onclick=()=>{const e=EV.find(x=>x.id==b.dataset.ev);if(!S.ev||S.ev.id!==e.id){S.ev=e;S.fmt=null;S.members=[];S.subs=[];S.extra={}}
+  if(e.formats.length===1)setFmt(e.formats[0]);S.step=3;render()})}
+function setFmt(f){S.fmt=f;const[lo,hi]=bounds();while(S.members.length<lo)S.members.push({});S.members.length=Math.min(S.members.length,hi)}
+function s3(v){const e=S.ev,both=e.formats.length===2;
+ const b=(f,t)=>{const ok=e.formats.includes(f);return `<button class="card" data-f="${f}" ${ok?'':'disabled'} aria-pressed="${S.fmt===f}">${t}</button>`};
+ v.innerHTML=`<h2>${esc(e.name)}</h2><p>${esc(fmtText(e))}</p><div class="types">${b('individual','INDIVIDUAL REGISTRATION')}${b('team','GROUP / TEAM REGISTRATION')}</div>`+
+ (both?'':`<div class="note">${e.formats[0]==='team'?'This is a team event, so individual registration is unavailable.':'This is an individual event, so team registration is unavailable.'}</div>`);
+ v.querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>{setFmt(b.dataset.f);render()})}
+const fld=(path,lab,type='text',req=true,extra='')=>`<label>${lab}${req?' <i>*</i>':''}<input data-p="${path}" type="${type}" ${req?'required':''} ${extra} value="${esc(get(path))}"></label>`;
+function get(p){const[a,i,k]=p.split('.');return a==='c'?S.common[i]??'':a==='x'?S.extra[i]??'':(S[a][i]||{})[k]??''}
+function set(p,v){const[a,i,k]=p.split('.');if(a==='c')S.common[i]=v;else if(a==='x')S.extra[i]=v;else(S[a][i]=S[a][i]||{})[k]=v}
+function person(arr,i,title){const p=arr+'.'+i+'.';const yr=get(p+'year');
+ return `<fieldset><legend>${title}</legend><div class="row">${fld(p+'name','Full name')}${fld(p+'email','College email','email',arr==='members'&&i===0)}${fld(p+'phone','Mobile number','tel',arr==='members'&&i===0,'inputmode="numeric" maxlength="10" pattern="[6-9][0-9]{9}"')}${fld(p+'dept','Department')}
+ <label>Course &amp; year <i>*</i><select data-p="${p}year"><option value="">Select</option>${YEARS.map(y=>`<option ${yr===y?'selected':''}>${y}</option>`).join('')}</select></label>${fld(p+'roll','Roll number / student ID')}</div>
+ ${arr==='subs'?`<button class="btn sec" data-rm="subs.${i}" type="button">Remove substitute</button>`:''}</fieldset>`}
+function s4(v){const e=S.ev,[lo,hi]=bounds(),team=S.fmt==='team';
+ let h=`<h2>${esc(e.name)} — ${team?label()+' details':'participant details'}</h2><p class="note">Fields marked * are required.</p><div class="row">`;
+ if(team)h+=fld('c.team_name','Team name');
+ h+=fld('c.college','College name')+fld('c.contingent_code','Contingent / college code',"text",false)+'</div>';
+ S.members.forEach((m,i)=>{h+=person('members',i,team?(i===0?'Team captain / leader':`Active player ${i+1}`):'Participant')});
+ if(team){h+=`<button class="btn sec" data-add="members" ${S.members.length>=hi?'disabled':''} type="button">Add member</button> <button class="btn sec" data-rm="members.last" ${S.members.length<=lo?'disabled':''} type="button">Remove member</button><small> ${S.members.length} of ${lo===hi?lo:lo+'–'+hi}</small>`;
+  if(e.sub_max){h+='<h3>Substitutes (separate from active players)</h3>';S.subs.forEach((m,i)=>h+=person('subs',i,'Substitute '+(i+1)));h+=`<button class="btn sec" data-add="subs" ${S.subs.length>=e.sub_max?'disabled':''} type="button">Add substitute</button>`}}
+ if(e.extra_fields.length){h+='<h3>Event-specific information</h3>'+e.extra_fields.map(f=>f.type==='textarea'?`<label>${esc(f.label)}${f.required?' <i>*</i>':''}<textarea data-p="x.${f.key}.">${esc(S.extra[f.key]||'')}</textarea></label>`:fld('x.'+f.key+'.',esc(f.label),f.type==='url'?'url':'text',!!f.required)).join('')}
+ h+=`<label style="margin-top:14px"><input type="checkbox" id="consent" style="width:auto;min-height:0" ${S.consent?'checked':''}> I confirm the details are correct and consent to their use for ASTRA FEST registration. <i>*</i></label>`;
+ v.innerHTML=h;
+ v.oninput=v.onchange=ev=>{const t=ev.target;if(t.dataset.p)set(t.dataset.p,t.value);if(t.id==='consent')S.consent=t.checked;saveDraft()};
+ v.onclick=ev=>{const t=ev.target;if(t.dataset.add){S[t.dataset.add].push({});render()}if(t.dataset.rm){const[a,i]=t.dataset.rm.split('.');S[a].splice(i==='last'?S[a].length-1:+i,1);render()}}}
+function check(){const e=S.ev,[lo,hi]=bounds(),c=S.common;const bad=[];
+ if(!c.college?.trim())bad.push('college name');if(S.fmt==='team'&&!c.team_name?.trim())bad.push('team name');
+ if(S.members.length<lo||S.members.length>hi)bad.push(`team size (${lo}–${hi})`);
+ S.members.forEach((m,i)=>{const n=i+1;if(!m.name?.trim())bad.push(`member ${n} name`);if(!m.dept?.trim()||!m.year||!m.roll?.trim())bad.push(`member ${n} department/year/roll no.`);
+  if(i===0){if(!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(m.email||''))bad.push('a valid email');if(!/^[6-9]\d{9}$/.test(m.phone||''))bad.push('a 10-digit mobile number')}});
+ S.subs.forEach((m,i)=>{if(!m.name?.trim()||!m.dept?.trim()||!m.year||!m.roll?.trim())bad.push(`substitute ${i+1} details`)});
+ e.extra_fields.forEach(f=>{if(f.required&&!(S.extra[f.key]||'').trim())bad.push(f.label)});
+ if(!S.consent)bad.push('consent');return bad}
+function s5(v){const e=S.ev;
+ v.innerHTML=`<h2>Review &amp; submit</h2><table class="s"><tr><td>Category</td><td>${esc(e.category)}${e.subcategory?' · '+esc(e.subcategory):''}</td></tr><tr><td>Event</td><td>${esc(e.name)}</td></tr><tr><td>Type</td><td>${S.fmt==='team'?label():'Individual'}</td></tr>${S.fmt==='team'?`<tr><td>Team</td><td>${esc(S.common.team_name)}</td></tr>`:''}<tr><td>College</td><td>${esc(S.common.college)}</td></tr>
+ <tr><td>${S.fmt==='team'?'Players':'Participant'}</td><td>${S.members.map((m,i)=>`${esc(m.name)} (${esc(m.dept)}, ${esc(m.year)}, ${esc(m.roll)})${i===0&&S.fmt==='team'?' — captain':''}`).join('<br>')}</td></tr>
+ ${S.subs.length?`<tr><td>Substitutes</td><td>${S.subs.map(m=>esc(m.name)).join('<br>')}</td></tr>`:''}<tr><td>Contact</td><td>${esc(S.members[0].email)} · ${esc(S.members[0].phone)}</td></tr>
+ ${e.extra_fields.map(f=>`<tr><td>${esc(f.label)}</td><td>${esc(S.extra[f.key])}</td></tr>`).join('')}${e.fee>0?`<tr><td>Fee</td><td>₹${e.fee} — payable online in the last step</td></tr>`:''}</table>`}
+
+/* ---- step 6: documents, then payment ---- */
+function s6(v){const r=S.reg,people=r.participants.filter(p=>p.role!=='substitute'),need=CFG.documents_required;
+ v.innerHTML=`<h2>Upload ID${r.fee>0?' &amp; pay':''}</h2><div class="note">Your registration code is <b>${esc(r.reg_code)}</b>. ${r.fee>0?'Your seat is held for a few minutes while you pay. ':''}${r.fee>0?'Fee: ₹'+r.fee+'.':'There is no fee for this event.'}</div>`+
+ people.map(p=>`<fieldset><legend>${esc(p.name)}</legend><label>College ID card photo (JPG, PNG or PDF, max ${CFG.max_upload_mb||5} MB)${need?' <i>*</i>':''}<input type="file" accept=".jpg,.jpeg,.png,.pdf" data-up="${esc(p.id)}" data-type="college_id"></label><div class="upst ${S.uploaded[p.id+':college_id']?'ok':''}" id="st-${esc(p.id)}">${S.uploaded[p.id+':college_id']?'✔ uploaded':''}</div></fieldset>`).join('')+
+ (r.fee>0&&CFG.manual_payment_allowed?`<fieldset><legend>Could not pay online? (optional)</legend><label>Payment screenshot<input type="file" accept=".jpg,.jpeg,.png,.pdf" data-up="" data-type="payment_screenshot"></label><div class="upst" id="st-"></div><p class="note">A screenshot is only reviewed by the committee — it does not confirm your payment automatically.</p><button class="btn sec" id="manual" type="button">Skip online payment — I'll be reviewed manually</button></fieldset>`:'')+
+ '<p class="note">Your ID is stored privately and used only to verify your registration.</p>';
+ v.onchange=async ev=>{const t=ev.target;if(t.dataset.up===undefined||t.dataset.type===undefined)return;const f=t.files[0];if(!f)return;
+  const st=document.getElementById('st-'+t.dataset.up);st.className='upst';st.textContent='Uploading…';
+  const fd=new FormData();fd.append('file',f);fd.append('doc_type',t.dataset.type);if(t.dataset.up)fd.append('participant_id',t.dataset.up);
+  try{const x=await fetch(API+`/registrations/${S.reg.registration_id}/documents`,{method:'POST',headers:H(false),body:fd});const d=await x.json();
+   if(x.ok){S.uploaded[t.dataset.up+':'+t.dataset.type]=true;st.className='upst ok';st.textContent='✔ uploaded';saveDraft()}else{st.className='upst bad';st.textContent=d.error||'Upload failed'}}
+  catch(e){st.className='upst bad';st.textContent='Network error — please choose the file again.'}};
+ const m=document.getElementById('manual');if(m)m.onclick=go}
+function go(){try{sessionStorage.removeItem(DK)}catch(e){}location.href='/confirmation/'+S.reg.registration_id+'#t='+S.secret}
+function loadRzp(){return new Promise((ok,no)=>{if(window.Razorpay)return ok();const s=document.createElement('script');s.src='https://checkout.razorpay.com/v1/checkout.js';s.onload=ok;s.onerror=()=>no(new Error('rzp'));document.head.appendChild(s)})}
+async function pay(){S.busy=true;render();
+ try{const r=await fetch(API+`/registrations/${S.reg.registration_id}/create-order`,{method:'POST',headers:H()});const d=await r.json();
+  if(!r.ok){S.busy=false;msg(d.error||'Could not start payment.');return render()}
+  await loadRzp();S.busy=false;render();
+  const rz=new Razorpay({key:d.key_id,amount:d.amount,currency:d.currency,order_id:d.order_id,name:'ASTRA FEST 2026',description:S.ev?S.ev.name:d.reg_code,
+   prefill:{name:(S.members[0]||{}).name,email:(S.members[0]||{}).email,contact:(S.members[0]||{}).phone},theme:{color:'#7a1f2b'},
+   handler:async resp=>{S.busy=true;render();
+    try{const v=await fetch(API+'/payments/verify',{method:'POST',headers:H(),body:JSON.stringify({registration_id:S.reg.registration_id,razorpay_order_id:resp.razorpay_order_id,razorpay_payment_id:resp.razorpay_payment_id,razorpay_signature:resp.razorpay_signature})});
+     const j=await v.json();S.busy=false;
+     if(v.ok&&j.status==='paid')return go();
+     msg(j.status==='pending'?'Your payment is being processed. Your confirmation will update automatically.':(j.error||'We could not verify the payment yet.')+' If money was deducted it will be confirmed automatically.','note');
+     S.busy=false;render();setTimeout(go,4000)}
+    catch(e){S.busy=false;msg('Network error while verifying. If money was deducted, your registration will be confirmed automatically — opening your confirmation…','note');render();setTimeout(go,4000)}},
+   modal:{ondismiss:()=>{msg('Payment not completed. You can try again while your seat is held.','note')}}});
+  rz.on('payment.failed',x=>msg('Payment failed: '+((x.error&&x.error.description)||'please try again.')));
+  rz.open()}
+ catch(e){S.busy=false;msg('Network error. Your details are saved here — please try again.');render()}}
+
+$('#back').onclick=()=>{msg('');S.step=Math.max(1,S.step-1);render()};
+$('#next').onclick=async()=>{msg('');
+ if(S.step===1&&!S.cat)return msg('Please choose a category.');
+ if(S.step===2&&!S.ev)return msg('Please choose an event.');
+ if(S.step===3&&!S.fmt)return msg('Please choose a participation type.');
+ if(S.step===4){const b=check();if(b.length)return msg('Please complete: '+b.slice(0,6).join(', '))}
+ if(S.step===6){const ppl=S.reg.participants.filter(p=>p.role!=='substitute');
+  if(CFG.documents_required&&!ppl.every(p=>S.uploaded[p.id+':college_id']))return msg('Please upload a college ID for every participant.');
+  return S.reg.fee>0?pay():go()}
+ if(S.step<5){S.step++;return render()}
+ if(S.busy)return;S.busy=true;render();               /* step 5: create the registration on the server */
+ try{const r=await fetch(API+'/register',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({event_id:S.ev.id,format:S.fmt,common:S.common,members:S.members,subs:S.subs,extra:S.extra,consent:S.consent,key:S.key,secret:S.secret})});
+  const d=await r.json();S.busy=false;
+  if(!r.ok){msg((d.error||'Submission failed.')+(d.details?' '+d.details.join('; '):''));return render()}
+  S.reg=d;S.step=6;render()}
+ catch(e){S.busy=false;msg('Network error. Your details are still here — please try again.');render()}};
+</script>
+{% endraw %}
+</body></html>

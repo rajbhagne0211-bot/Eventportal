@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="csrf" content="{{ csrf_token }}"><meta name="robots" content="noindex">
+<title>{% block title %}Admin{% endblock %} — ASTRA FEST 2026</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}"></head>
+<body data-page="{{ page|default('') }}">
+{% block nav %}
+<header class="bar"><b class="logo">ASTRA ADMIN</b>
+ <nav>{% for p in ['dashboard','events','registrations','participants','payments','documents','departments','settings'] if p in perms %}
+  <a href="{{ url_for('admin.page', name=p) }}" class="{{ 'on' if p == page }}">{{ p|capitalize }}</a>{% endfor %}</nav>
+ <span class="who">{{ admin.email }} ({{ admin.role }})
+  <form method="post" action="{{ url_for('admin.logout') }}" style="display:inline"><input type="hidden" name="csrf_token" value="{{ csrf_token }}"><button class="lnk">Log out</button></form>
+  · <a href="/">Public site</a></span></header>
+{% endblock %}
+<main id="app">{% block content %}{% endblock %}</main>
+<script>window.PERMS_JSON={{ (perms|default([]))|tojson }};</script>
+<script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+</body></html>

@@ -1,0 +1,13 @@
+{% extends "admin/base.html" %}
+{% block title %}Login{% endblock %}
+{% block nav %}{% endblock %}
+{% block content %}
+<form method="post" class="login card" autocomplete="on">
+ <h1>ASTRA Admin</h1>
+ {% if error %}<p class="bad">{{ error }}</p>{% endif %}
+ <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+ <label>E-mail<input name="email" type="email" required autofocus></label>
+ <label>Password<input name="password" type="password" required></label>
+ <button class="btn">Log in</button>
+</form>
+{% endblock %}
